@@ -8,7 +8,7 @@ import re
 import multiprocessing
 
 '''
-Query https://syzkaller.appspot.com/upstream/fixed for all bugs that have been fixed and have "C" and "syz" reproducers
+Query https://syzkaller.appspot.com/android-6-1/fixed for all bugs that have been fixed and have "C" and "syz" reproducers
 Save reproducers to text files
 '''
 
@@ -44,7 +44,7 @@ def get_reproducers(bug):
 def main():
     # Query the page
     bugs = []
-    page = requests.get("https://syzkaller.appspot.com/upstream/fixed")
+    page = requests.get("https://syzkaller.appspot.com/android-6-1")
     soup = BeautifulSoup(page.content, 'html.parser')
     # parse table rows
     rows = soup.find_all('tr')
