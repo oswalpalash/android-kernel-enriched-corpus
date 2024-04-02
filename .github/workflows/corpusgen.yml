@@ -25,18 +25,18 @@ jobs:
         cd ..
         git clone https://github.com/google/syzkaller
         cd syzkaller/tools/syz-db
-        go run syz-db.go pack ../../../linux-kernel-enriched-corpus/files enriched_corpus.db
-        cp -v enriched_corpus.db ../../../linux-kernel-enriched-corpus/corpus.db
-        wget https://storage.googleapis.com/syzkaller/corpus/ci2-android-6-1-corpus.db -O ../../../linux-kernel-enriched-corpus/ci2-android-6-1-corpus.db
+        go run syz-db.go pack ../../../android-kernel-enriched-corpus/files enriched_corpus.db
+        cp -v enriched_corpus.db ../../../android-kernel-enriched-corpus/corpus.db
+        wget https://storage.googleapis.com/syzkaller/corpus/ci2-android-6-1-corpus.db -O ../../../android-kernel-enriched-corpus/ci2-android-6-1-corpus.db
         echo "Downloaded Corpus From Syz-CI"
-        go run syz-db.go unpack ../../../linux-kernel-enriched-corpus/ci2-android-6-1-corpus.db temp/
+        go run syz-db.go unpack ../../../android-kernel-enriched-corpus/ci2-android-6-1-corpus.db temp/
         echo "Unpacking Retrived Corpus"
-        for f in ../../../linux-kernel-enriched-corpus/files/* ; do cp -v "$f" temp/ ; done
+        for f in ../../../android-kernel-enriched-corpus/files/* ; do cp -v "$f" temp/ ; done
         echo "Packing Enriched Syz-CI Google Corpus"
-        go run syz-db.go pack temp ../../../linux-kernel-enriched-corpus/enriched-ci2-android-6-1-corpus.db
+        go run syz-db.go pack temp ../../../android-kernel-enriched-corpus/enriched-ci2-android-6-1-corpus.db
         cd ../../../
         rm -vr syzkaller
-        cd linux-kernel-enriched-corpus
+        cd android-kernel-enriched-corpus
     - name: zip artifacts
       run: |
         zip --junk-paths enriched-corpus *.db
