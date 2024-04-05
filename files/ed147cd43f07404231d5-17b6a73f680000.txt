@@ -1,0 +1,4 @@
+# https://syzkaller.appspot.com/bug?id=12de3ef652da49004bb1be531a34e4f346cdae3c
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"none","sandbox_arg":0,"tun":true,"netdev":true,"resetnet":true,"cgroups":true,"binfmt_misc":true,"close_fds":true,"usb":true,"sysctl":true,"swap":true,"tmpdir":true,"segv":true}
+unshare(0x40000600) (fail_nth: 67, rerun: 64)
