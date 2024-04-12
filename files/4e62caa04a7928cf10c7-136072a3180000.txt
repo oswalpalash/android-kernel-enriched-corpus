@@ -1,0 +1,9 @@
+# https://syzkaller.appspot.com/bug?id=29a05f558dd8f68f2f9216c6b007a72e1cb6d70d
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false,"tmpdir":true,"segv":true}
+mkdir(&(0x7f0000000400)='./file0\x00', 0x0)
+mount$tmpfs(0x0, &(0x7f00000003c0)='./file0\x00', &(0x7f0000000400), 0x0, 0x0)
+chdir(&(0x7f0000000000)='./file0\x00')
+syz_mount_image$vfat(&(0x7f0000000000), &(0x7f0000000100)='./file0\x00', 0x0, 0x0, 0x0, 0x0, &(0x7f0000000000))
+mount$bind(&(0x7f00000002c0)='.\x00', &(0x7f0000000200)='./file0/../file0\x00', 0x0, 0x101091, 0x0)
+mount$incfs(&(0x7f0000000240)='./file0\x00', &(0x7f0000000040)='./file0\x00', &(0x7f0000000180), 0x0, 0x0)
