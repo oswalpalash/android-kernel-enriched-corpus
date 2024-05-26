@@ -1,0 +1,10 @@
+# https://syzkaller.appspot.com/bug?id=875eaab96697dcd5de18bce8004ce048fdd61073
+# See https://goo.gl/kgGztJ for information about syzkaller reproducers.
+#{"threaded":true,"repeat":true,"procs":1,"slowdown":1,"sandbox":"","sandbox_arg":0,"close_fds":false}
+mkdirat(0xffffffffffffff9c, &(0x7f0000002040)='./file0\x00', 0x0)
+mount$incfs(&(0x7f0000000140)='./file0\x00', &(0x7f0000000100)='./file0\x00', &(0x7f0000000040), 0x0, 0x0)
+syz_mount_image$fuse(&(0x7f0000000140), &(0x7f00000001c0)='./file0\x00', 0x40000, &(0x7f0000000380)=ANY=[@ANYBLOB, @ANYRESHEX, @ANYBLOB, @ANYRESDEC=0x0, @ANYBLOB, @ANYRESDEC=0x0, @ANYBLOB], 0x1, 0x0, 0x0)
+r0 = openat$dir(0xffffffffffffff9c, &(0x7f0000000000)='.\x00', 0x0, 0x0)
+mkdirat(0xffffffffffffff9c, &(0x7f00000003c0)='./file1\x00', 0x0)
+renameat2(r0, &(0x7f0000000040)='./file1\x00', r0, &(0x7f0000000080)='./bus\x00', 0x2) (async)
+openat$incfs(0xffffffffffffffff, &(0x7f0000000080)='.pending_reads\x00', 0x0, 0x0)
